@@ -59,16 +59,74 @@ body {
 .heading-primary {
   color: white;
   text-transform: uppercase;
+  /*  fix:eleminate shaking of animation */
+  backface-visibility: hidden;
 }
 .heading-primary-main {
+  /* takesthe full line/ block */
   display: block;
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+  /* this two properties we have to specify for animation */
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  /* ------other properties for animation */
+  /* animation-delay: 3s; */
+  /* animation-iteration-count: 3; */
+  /* ------defines how the animation proceeds */
+  animation-timing-function: ease-out;
 }
 .heading-primary-sub {
   display: block;
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 17.4px;
+  /* animation properties in one line */
+  animation: moveInRight 1s ease-out;
+}
+
+/* animation */
+
+@keyframes moveInLeft {
+  /* before animation starts */
+  0% {
+    /* make it invisible at first */
+    opacity: 0;
+    /* animate in x direction */
+    transform: translateX(-100px);
+  }
+
+  /* animation is at 80% */
+  80% {
+    /* animation bumps to right */
+    transform: translateX(10px);
+  }
+
+  /* when the animation finishes */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInRight {
+  /* before animation starts */
+  0% {
+    /* make it invisible at first */
+    opacity: 0;
+    /* animate in x direction */
+    transform: translateX(100px);
+  }
+
+  /* animation is at 80% */
+  80% {
+    /* animation bumps to right */
+    transform: translateX(-10px);
+  }
+
+  /* when the animation finishes */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
