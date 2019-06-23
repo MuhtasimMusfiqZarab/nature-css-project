@@ -8,21 +8,32 @@ Dark green: #28b485
 */
 
 /* simple reset for browsers */
-
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  /* inherits from body 
+  ( as box sizing defaltly not inherited) */
+  box-sizing: inherit;
+}
+
+/* root font size is set in html selector (for using rem unit) */
+html {
+  /* default is 16px
+  we need 10px */
+  font-size: 62.5%;
 }
 
 /* changing fonts */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px; */
   line-height: 1.7;
   color: #777;
-  padding: 30px;
+  padding: 2.5rem;
+  box-sizing: border-box;
 }
 
 /* header */
@@ -42,13 +53,13 @@ body {
 .logo-box {
   /* use absolote positioning relative to parent */
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
   /* width would be autometically figured out */
-  height: 30px;
+  height: 3.5rem;
 }
 .text-box {
   position: absolute;
@@ -66,14 +77,14 @@ body {
   /*  fix:eleminate shaking of animation */
   backface-visibility: hidden;
   /* use white Space */
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 .heading-primary-main {
   /* takesthe full line/ block */
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
   /* this two properties we have to specify for animation */
   animation-name: moveInLeft;
   animation-duration: 1s;
@@ -85,9 +96,9 @@ body {
 }
 .heading-primary-sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 400;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
   /* animation properties in one line */
   animation: moveInRight 1s ease-out;
 }
@@ -100,13 +111,13 @@ body {
     /* make it invisible at first */
     opacity: 0;
     /* animate in x direction */
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
 
   /* animation is at 80% */
   80% {
     /* animation bumps to right */
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
 
   /* when the animation finishes */
@@ -121,13 +132,13 @@ body {
     /* make it invisible at first */
     opacity: 0;
     /* animate in x direction */
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
 
   /* animation is at 80% */
   80% {
     /* animation bumps to right */
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
 
   /* when the animation finishes */
@@ -142,7 +153,7 @@ body {
     /* make it invisible at first */
     opacity: 0;
     /* animate in Y direction */
-    transform: translateY(50px);
+    transform: translateY(5rem);
   }
 
   /* when the animation finishes */
@@ -158,27 +169,28 @@ body {
   text-transform: uppercase;
   /* removing the underline */
   text-decoration: none;
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   /* we do this if we give padding/height/width to elements*/
   display: inline-block;
-  border-radius: 100px;
+  border-radius: 10rem;
   /* easier animation property
   we put transition in initial state
   */
   transition: all 0.2s;
   /* for the child button */
   position: relative;
+  font-size: 1.6rem;
 }
 .btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-0.3rem);
   /* adding shadow to y direction (x y blur shadow-color)*/
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
 }
 
 /* when we clicked */
 .btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
 }
 
 .btn-white {
@@ -193,7 +205,7 @@ body {
   display: inline-block;
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   /* put this behind the button */
   position: absolute;
   top: 0;
