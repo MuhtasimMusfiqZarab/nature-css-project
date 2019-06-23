@@ -30,10 +30,12 @@ body {
   height: 95vh;
   background-image: linear-gradient(to right bottom, #7ed56f5e, #28b4856b),
     url("../img/hero.jpg");
+  /* makes it as a cover */
   background-size: cover;
   background-position: top;
-  /* for position of the child */
+  /* for positioning of the child */
   position: relative;
+  /* clipping the image (x,y) */
   clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
 }
 
@@ -54,6 +56,8 @@ body {
   left: 50%;
   /* transforming relative to the element itself */
   transform: translate(-50%, -50%);
+  /* allign only texts to center inside of the box (includes button)*/
+  text-align: center;
 }
 
 .heading-primary {
@@ -61,6 +65,8 @@ body {
   text-transform: uppercase;
   /*  fix:eleminate shaking of animation */
   backface-visibility: hidden;
+  /* use white Space */
+  margin-bottom: 60px;
 }
 .heading-primary-main {
   /* takesthe full line/ block */
@@ -129,4 +135,34 @@ body {
     opacity: 1;
     transform: translate(0);
   }
+}
+
+/* header button */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  /* removing the underline */
+  text-decoration: none;
+  padding: 15px 40px;
+  /* we do this if we give padding/height/width to elements*/
+  display: inline-block;
+  border-radius: 100px;
+  /* easier animation property */
+  transition: all 0.2s;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  /* adding shadow to y direction (x y blur shadow-color)*/
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* when we clicked */
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-white {
+  background: white;
+  color: #777;
 }
