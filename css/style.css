@@ -136,6 +136,21 @@ body {
     transform: translate(0);
   }
 }
+@keyframes moveInBottom {
+  /* before animation starts */
+  0% {
+    /* make it invisible at first */
+    opacity: 0;
+    /* animate in Y direction */
+    transform: translateY(50px);
+  }
+
+  /* when the animation finishes */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
 
 /* header button */
 .btn:link,
@@ -147,8 +162,12 @@ body {
   /* we do this if we give padding/height/width to elements*/
   display: inline-block;
   border-radius: 100px;
-  /* easier animation property */
+  /* easier animation property
+  we put transition in initial state
+  */
   transition: all 0.2s;
+  /* for the child button */
+  position: relative;
 }
 .btn:hover {
   transform: translateY(-3px);
@@ -165,4 +184,38 @@ body {
 .btn-white {
   background: white;
   color: #777;
+}
+
+/* sudo element : treated as a child of the button-------(only for extra styling)-----------------------*/
+.btn::after {
+  /* content property is always necessary */
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  /* put this behind the button */
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* for positioning on top of another */
+  z-index: -1;
+  transition: all 0.2s;
+}
+
+.btn-white::after {
+  background: white;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-animated {
+  /* addding animation */
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  /* apply animation 0% before it starts 
+  to hide the button initially  */
+  animation-fill-mode: backwards;
 }
