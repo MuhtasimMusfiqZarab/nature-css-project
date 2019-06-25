@@ -50,18 +50,18 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
 }
 
-.logo-box {
+.header__logo-box {
   /* use absolote positioning relative to parent */
   position: absolute;
   top: 4rem;
   left: 4rem;
 }
 
-.logo {
+.header__logo {
   /* width would be autometically figured out */
   height: 3.5rem;
 }
-.text-box {
+.header__text-box {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -79,7 +79,7 @@ body {
   /* use white Space */
   margin-bottom: 6rem;
 }
-.heading-primary-main {
+.heading-primary--main {
   /* takesthe full line/ block */
   display: block;
   font-size: 6rem;
@@ -94,7 +94,7 @@ body {
   /* ------defines how the animation proceeds */
   animation-timing-function: ease-out;
 }
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 400;
@@ -193,7 +193,7 @@ body {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
 }
 
-.btn-white {
+.btn--white {
   background: white;
   color: #777;
 }
@@ -215,7 +215,7 @@ body {
   transition: all 0.2s;
 }
 
-.btn-white::after {
+.btn--white::after {
   background: white;
 }
 
@@ -224,7 +224,7 @@ body {
   opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
   /* addding animation */
   animation: moveInBottom 0.5s ease-out 0.75s;
   /* apply animation 0% before it starts 
