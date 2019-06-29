@@ -1,3 +1,10 @@
+// variables here
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+$color-grey-dark: #777;
+$color-white: #fff;
+
 /* simple reset for browsers */
 *,
 *::after,
@@ -6,13 +13,15 @@
   padding: 0;
   /* inherits from body 
   ( as box sizing defaltly not inherited) */
-  box-sizing: inherit; }
+  box-sizing: inherit;
+}
 
 /* root font size is set in html selector (for using rem unit) */
 html {
   /* default is 16px
   we need 10px */
-  font-size: 62.5%; }
+  font-size: 62.5%;
+}
 
 /* changing fonts */
 body {
@@ -20,32 +29,40 @@ body {
   font-weight: 400;
   /* font-size: 16px; */
   line-height: 1.7;
-  color: #777;
+  color: $color-grey-dark;
   padding: 2.5rem;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 /* header */
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.4), rgba(40, 180, 133, 0.4)), url("../img/hero.jpg");
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.4),
+      rgba($color-primary-dark, 0.4)
+    ),
+    url("../img/hero.jpg");
   /* makes it as a cover */
   background-size: cover;
   background-position: top;
   /* for positioning of the child */
   position: relative;
   /* clipping the image (x,y) */
-  clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%); }
+  clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+}
 
 .header__logo-box {
   /* use absolote positioning relative to parent */
   position: absolute;
   top: 4rem;
-  left: 4rem; }
+  left: 4rem;
+}
 
 .header__logo {
   /* width would be autometically figured out */
-  height: 3.5rem; }
-
+  height: 3.5rem;
+}
 .header__text-box {
   position: absolute;
   top: 40%;
@@ -53,16 +70,17 @@ body {
   /* transforming relative to the element itself */
   transform: translate(-50%, -50%);
   /* allign only texts to center inside of the box (includes button)*/
-  text-align: center; }
+  text-align: center;
+}
 
 .heading-primary {
-  color: #fff;
+  color: $color-white;
   text-transform: uppercase;
   /*  fix:eleminate shaking of animation */
   backface-visibility: hidden;
   /* use white Space */
-  margin-bottom: 6rem; }
-
+  margin-bottom: 6rem;
+}
 .heading-primary--main {
   /* takesthe full line/ block */
   display: block;
@@ -76,60 +94,76 @@ body {
   /* animation-delay: 3s; */
   /* animation-iteration-count: 3; */
   /* ------defines how the animation proceeds */
-  animation-timing-function: ease-out; }
-
+  animation-timing-function: ease-out;
+}
 .heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 400;
   letter-spacing: 1.75rem;
   /* animation properties in one line */
-  animation: moveInRight 1s ease-out; }
+  animation: moveInRight 1s ease-out;
+}
 
 /* animation */
+
 @keyframes moveInLeft {
   /* before animation starts */
   0% {
     /* make it invisible at first */
     opacity: 0;
     /* animate in x direction */
-    transform: translateX(-10rem); }
+    transform: translateX(-10rem);
+  }
+
   /* animation is at 80% */
   80% {
     /* animation bumps to right */
-    transform: translateX(1rem); }
+    transform: translateX(1rem);
+  }
+
   /* when the animation finishes */
   100% {
     opacity: 1;
-    transform: translate(0); } }
-
+    transform: translate(0);
+  }
+}
 @keyframes moveInRight {
   /* before animation starts */
   0% {
     /* make it invisible at first */
     opacity: 0;
     /* animate in x direction */
-    transform: translateX(10rem); }
+    transform: translateX(10rem);
+  }
+
   /* animation is at 80% */
   80% {
     /* animation bumps to right */
-    transform: translateX(-1rem); }
+    transform: translateX(-1rem);
+  }
+
   /* when the animation finishes */
   100% {
     opacity: 1;
-    transform: translate(0); } }
-
+    transform: translate(0);
+  }
+}
 @keyframes moveInBottom {
   /* before animation starts */
   0% {
     /* make it invisible at first */
     opacity: 0;
     /* animate in Y direction */
-    transform: translateY(5rem); }
+    transform: translateY(5rem);
+  }
+
   /* when the animation finishes */
   100% {
     opacity: 1;
-    transform: translate(0); } }
+    transform: translate(0);
+  }
+}
 
 /* header button */
 .btn:link,
@@ -147,21 +181,24 @@ body {
   transition: all 0.2s;
   /* for the child button */
   position: relative;
-  font-size: 1.6rem; }
-
+  font-size: 1.6rem;
+}
 .btn:hover {
   transform: translateY(-0.3rem);
   /* adding shadow to y direction (x y blur shadow-color)*/
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3); }
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+}
 
 /* when we clicked */
 .btn:active {
   transform: translateY(-0.1rem);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3); }
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+}
 
 .btn--white {
-  background: #fff;
-  color: #777; }
+  background: $color-white;
+  color: #777;
+}
 
 /* sudo element : treated as a child of the button-------(only for extra styling)-----------------------*/
 .btn::after {
@@ -177,18 +214,22 @@ body {
   left: 0;
   /* for positioning on top of another */
   z-index: -1;
-  transition: all 0.2s; }
+  transition: all 0.2s;
+}
 
 .btn--white::after {
-  background: #fff; }
+  background: $color-white;
+}
 
 .btn:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; }
+  opacity: 0;
+}
 
 .btn--animated {
   /* addding animation */
   animation: moveInBottom 0.5s ease-out 0.75s;
   /* apply animation 0% before it starts 
   to hide the button initially  */
-  animation-fill-mode: backwards; }
+  animation-fill-mode: backwards;
+}
