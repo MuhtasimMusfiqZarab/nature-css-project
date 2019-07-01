@@ -1,0 +1,73 @@
+/* header button */
+
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    /* removing the underline */
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    /* we do this if we give padding/height/width to elements*/
+    display: inline-block;
+    border-radius: 10rem;
+    /* easier animation property
+  we put transition in initial state
+  */
+    transition: all 0.2s;
+    /* for the child button */
+    position: relative;
+    font-size: 1.6rem;
+  }
+
+  //when we hover
+  &:hover {
+    transform: translateY(-0.3rem);
+    /* adding shadow to y direction (x y blur shadow-color)*/
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.3);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  /* when we clicked */
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  }
+
+  &--white {
+    background: $color-white;
+    color: #777;
+  }
+
+  /* sudo element : treated as a child of the button-------(only for extra styling)-----------------------*/
+  &::after {
+    /* content property is always necessary */
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    /* put this behind the button */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* for positioning on top of another */
+    z-index: -1;
+    transition: all 0.2s;
+  }
+
+  &--white::after {
+    background: $color-white;
+  }
+
+  &--animated {
+    /* addding animation */
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    /* apply animation 0% before it starts 
+  to hide the button initially  */
+    animation-fill-mode: backwards;
+  }
+}

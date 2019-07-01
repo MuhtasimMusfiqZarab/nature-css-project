@@ -1,0 +1,59 @@
+/* animation */
+
+@keyframes moveInLeft {
+  /* before animation starts */
+  0% {
+    /* make it invisible at first */
+    opacity: 0;
+    /* animate in x direction */
+    transform: translateX(-10rem);
+  }
+
+  /* animation is at 80% */
+  80% {
+    /* animation bumps to right */
+    transform: translateX(1rem);
+  }
+
+  /* when the animation finishes */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInRight {
+  /* before animation starts */
+  0% {
+    /* make it invisible at first */
+    opacity: 0;
+    /* animate in x direction */
+    transform: translateX(10rem);
+  }
+
+  /* animation is at 80% */
+  80% {
+    /* animation bumps to right */
+    transform: translateX(-1rem);
+  }
+
+  /* when the animation finishes */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInBottom {
+  /* before animation starts */
+  0% {
+    /* make it invisible at first */
+    opacity: 0;
+    /* animate in Y direction */
+    transform: translateY(5rem);
+  }
+
+  /* when the animation finishes */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
