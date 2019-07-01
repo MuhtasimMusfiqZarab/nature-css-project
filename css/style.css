@@ -35,25 +35,22 @@ body {
   position: relative;
   /* clipping the image (x,y) */
   clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%); }
-
-.header__logo-box {
-  /* use absolote positioning relative to parent */
-  position: absolute;
-  top: 4rem;
-  left: 4rem; }
-
-.header__logo {
-  /* width would be autometically figured out */
-  height: 3.5rem; }
-
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  /* transforming relative to the element itself */
-  transform: translate(-50%, -50%);
-  /* allign only texts to center inside of the box (includes button)*/
-  text-align: center; }
+  .header__logo-box {
+    /* use absolote positioning relative to parent */
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    /* width would be autometically figured out */
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* transforming relative to the element itself */
+    transform: translate(-50%, -50%);
+    /* allign only texts to center inside of the box (includes button)*/
+    text-align: center; }
 
 .heading-primary {
   color: #fff;
@@ -62,29 +59,27 @@ body {
   backface-visibility: hidden;
   /* use white Space */
   margin-bottom: 6rem; }
-
-.heading-primary--main {
-  /* takesthe full line/ block */
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  /* this two properties we have to specify for animation */
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  /* ------other properties for animation */
-  /* animation-delay: 3s; */
-  /* animation-iteration-count: 3; */
-  /* ------defines how the animation proceeds */
-  animation-timing-function: ease-out; }
-
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 400;
-  letter-spacing: 1.75rem;
-  /* animation properties in one line */
-  animation: moveInRight 1s ease-out; }
+  .heading-primary--main {
+    /* takesthe full line/ block */
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    /* this two properties we have to specify for animation */
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    /* ------other properties for animation */
+    /* animation-delay: 3s; */
+    /* animation-iteration-count: 3; */
+    /* ------defines how the animation proceeds */
+    animation-timing-function: ease-out; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 1.75rem;
+    /* animation properties in one line */
+    animation: moveInRight 1s ease-out; }
 
 /* animation */
 @keyframes moveInLeft {
@@ -132,63 +127,56 @@ body {
     transform: translate(0); } }
 
 /* header button */
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  /* removing the underline */
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  /* we do this if we give padding/height/width to elements*/
-  display: inline-block;
-  border-radius: 10rem;
-  /* easier animation property
+.btn {
+  /* when we clicked */
+  /* sudo element : treated as a child of the button-------(only for extra styling)-----------------------*/ }
+  .btn:link, .btn:visited {
+    text-transform: uppercase;
+    /* removing the underline */
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    /* we do this if we give padding/height/width to elements*/
+    display: inline-block;
+    border-radius: 10rem;
+    /* easier animation property
   we put transition in initial state
   */
-  transition: all 0.2s;
-  /* for the child button */
-  position: relative;
-  font-size: 1.6rem; }
-
-.btn:hover {
-  transform: translateY(-0.3rem);
-  /* adding shadow to y direction (x y blur shadow-color)*/
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3); }
-
-/* when we clicked */
-.btn:active {
-  transform: translateY(-0.1rem);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3); }
-
-.btn--white {
-  background: #fff;
-  color: #777; }
-
-/* sudo element : treated as a child of the button-------(only for extra styling)-----------------------*/
-.btn::after {
-  /* content property is always necessary */
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  /* put this behind the button */
-  position: absolute;
-  top: 0;
-  left: 0;
-  /* for positioning on top of another */
-  z-index: -1;
-  transition: all 0.2s; }
-
-.btn--white::after {
-  background: #fff; }
-
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; }
-
-.btn--animated {
-  /* addding animation */
-  animation: moveInBottom 0.5s ease-out 0.75s;
-  /* apply animation 0% before it starts 
+    transition: all 0.2s;
+    /* for the child button */
+    position: relative;
+    font-size: 1.6rem; }
+  .btn:hover {
+    transform: translateY(-0.3rem);
+    /* adding shadow to y direction (x y blur shadow-color)*/
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3); }
+    .btn:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; }
+  .btn:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3); }
+  .btn--white {
+    background: #fff;
+    color: #777; }
+  .btn::after {
+    /* content property is always necessary */
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    /* put this behind the button */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* for positioning on top of another */
+    z-index: -1;
+    transition: all 0.2s; }
+  .btn--white::after {
+    background: #fff; }
+  .btn--animated {
+    /* addding animation */
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    /* apply animation 0% before it starts 
   to hide the button initially  */
-  animation-fill-mode: backwards; }
+    animation-fill-mode: backwards; }
