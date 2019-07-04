@@ -1,0 +1,11 @@
+//clearfix for float (floating children element makes the parent element's height zero)
+//thats why we use clearfix
+//how clearfix works: append a psudo-element after the element which will then clear these floats
+@mixin clearfix {
+  &::after {
+    content: "";
+    //we need then to display this element
+    display: table; //standard version of clearfix
+    clear: both; //clear both float left & right
+  }
+}
