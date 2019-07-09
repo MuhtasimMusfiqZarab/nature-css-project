@@ -1,6 +1,5 @@
 .row {
   max-width: $grid-width;
-  background-color: #eee;
   //to centralize block element inside another block element
   margin: 0 auto;
   //we dont want last row to have magrin bottom
@@ -17,7 +16,6 @@
   // * means select any classes which contains col-
   // $ means select any classes which ends with col-
   [class^="col-"] {
-    background-color: orangered;
     float: left;
 
     &:not(:last-child) {

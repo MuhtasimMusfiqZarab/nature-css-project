@@ -1,0 +1,9 @@
+//stylinf for about section
+
+.section-about {
+  background-color: $color-grey-light-1;
+  padding: 25rem 0;
+
+  //we need to move this section up
+  margin-top: -20vh;
+}
